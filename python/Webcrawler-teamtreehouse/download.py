@@ -14,15 +14,15 @@ global jishu2
 
 
 
-http_agent='http://hk2.nhpass.com:110'
+http_agent='http://user:password@hk2.nhpass.com:110'
 proxies = {'http':http_agent,'https':http_agent,}
 
 
-http_agent_backup='http://hk2.nhpass.com:110'
+http_agent_backup='http://user:password@hk2.nhpass.com:110'
 proxies_backup = {'http':http_agent,'https':http_agent,}
+#以上设置HTTP代理，进行下载
 
-
-class DownloadThread(threading.Thread):
+class DownloadThread(threading.Thread):#下载的线程
 
     def __init__(self,canshu_url,canshu_flodoer,canshu_name,canshu_proxy):
         threading.Thread.__init__(self)
@@ -52,12 +52,9 @@ match_subtitle=re.compile(r'attachment; filename="([\s\S]*?)"' )
 match_appendix=re.compile(r'<a class="button-reveal" href="([\s\S]*)" title="Download">' )
 s = requests.session()
 s.headers["Cookie"] = "_treehouse_session=b1Z6QmEyeHVaSjBZYy92aWtlWExYMDZJOE9rQktKTjEwa2dhT0hsMENncU4rRHJjc0sra0ZidnhSU1RHNkdYQnhONWxXcGhRTG9aR0ZBbFhuRERrbkFjbHN5QjVJNmIwTkZhaUZwdmVTL1JZMnBkZ3NhV3E1Y29PNkUzQVdXZTRVa1VDOXc1bDV3WGV0NU4xQS9WVEpRRlFOenZGV2pvTjNYOTZQRXRFNTh6TE1nelV1Y2RCUThBczdmb3hhRURuQ2Q5dlBXQVFINjUyYUl2N3hSQTdvRzJlL1Fybkg4bVl2amg4MmNCNDRpbDJjK2VOWTBwbCtsRlBiN05Rbm1Wdkxoc3IwK1ljTWE1M3FBdTYyYzlCSlEzaXJ3Zkd5UHRYMXRYYnBYMERUb3JyYXJIU1UzNGhJZGdQVFBHSGlaYXB2blFjUklxajVabWNQMG03U0ZvZkl2V3QxZ1lJNFcvd3Ntd0JKNEZGaFJuMVM1aXV2bVNDMTRIQk1kQTVDYXI1RzNOVitQT0tlTkJtUVFkazdiOUtYYWpFbVNFdnE2MUhYTVhCRjliaFd1N0FmNWZDa0ZjZUdYRkhOYXFjcDM0ZS0tZUg0MWN5aGN2YkJudUZQQkhGTDR0dz09--4158435b72e736e2ed84dee1443cb88c0859858e; path=/; HttpOnly"
+#设置cookies，免登录操作
 
 
-
-
-
-#print()
 
 for k in range(len(download_name)):
     list=list+1
@@ -69,7 +66,7 @@ for k in range(len(download_name)):
     Result_index=match_index.findall(html)
     print ("parent location:"+str(list))
     jishu2=0
-    jishu1=0
+    jishu1=0#保证一个任务完成后才能进入下一个任务
 
 
     for i in range(len(Result_index)):
@@ -79,13 +76,8 @@ for k in range(len(download_name)):
         Result_download=match_download.findall(html)
         Result_appendix=match_appendix.findall(html)
 
-
-        #print(html)
-        #print(Result_download)
-        #print(Result_appendix)
         url_download_mp4=Result_download[0][0]
         url_download_subtitle="http://teamtreehouse.com"+Result_download[0][2]
-       #print (html)
 
         if(Result_appendix):
                 url_download_appendix=Result_appendix[0]
@@ -113,10 +105,7 @@ for k in range(len(download_name)):
         saving_name_floder=strinfo.sub('slash',saving_name_floder)
         saving_name_mp4=strinfo.sub('slash',saving_name_mp4)
         saving_name_subtitle=strinfo.sub('slash',saving_name_subtitle)
-        #strinfo = re.compile(r'\|')
-        #saving_name_floder=strinfo.sub('',saving_name_floder)
-        #saving_name_mp4=strinfo.sub('',saving_name_mp4)
-        #saving_name_subtitle=strinfo.sub('',saving_name_subtitle)
+
 
         path=saving_name_floder_local+str(i)+"."+saving_name_floder
 
@@ -124,7 +113,7 @@ for k in range(len(download_name)):
 
         path = strinfo.sub('',path)
         saving_name_subtitle= strinfo.sub('',saving_name_subtitle)
-        a=1
+        a=1#不断切换代理的时候使用
         #print( path)
         if(os.path.exists(path)==False):
             os.makedirs(path)
