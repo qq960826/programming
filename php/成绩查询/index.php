@@ -17,8 +17,8 @@ header("Content-type: text/html; charset=utf8");
 
 //MYSQL连接
 
-//$link_ID = mysql_pconnect('174.139.147.154','root','960826wang');
-$link_ID = mysql_pconnect('localhost','root','ypw+wzq+123');
+
+$link_ID = mysql_pconnect('localhost','root','root');
 if(mysql_select_db('fenshu',$link_ID)){
 	//echo "OK";
 }else{

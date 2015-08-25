@@ -1,8 +1,7 @@
 <?php
 header("Content-type: text/html; charset=gb2312"); 
 
-@$link_ID = mysql_pconnect("127.0.0.1","root","ypw+wzq+123");
-//$link_ID = mysql_pconnect('174.139.147.154','sq_qq960826','960826wang');
+@$link_ID = mysql_pconnect("127.0.0.1","root","root");
 if(mysql_select_db("fenshu",$link_ID)){
 	//echo "连接成功";
 }else{
