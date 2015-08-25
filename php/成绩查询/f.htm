@@ -1,0 +1,96 @@
+﻿
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <title>学科网资源提取器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+
+
+    <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./">学科网资源提取器</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a class="active" href="./">首页</a></li>
+
+			  <!--
+              <li class="active"><a href="ajaxDemo1.php">Ajax Form 1</a></li>
+
+              <li><a href="modalDemo.php">Modal Demo</a></li>
+			  <li><a href="http://glennantoine.com/2012/08/11/phpajax-call-php-function/">Main Site - Tutorial</a></li>
+			  -->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+		<!-- First Form Starts Here -->
+<form cation="index.php" method="post">
+				<input type="hidden" name="function" value="formOne">
+			        <fieldset>
+			          <legend>请认真填写以下内容</legend>
+
+
+
+			          <div class="control-group">
+			            <label class="control-label" for="input01">学科网的资源ID号</label>
+			            <div class="controls">
+							<input type="text" name="xkids" class="input-xlarge" rows="1" cols="10" placeholder="请填写学科网的资源ID编号，一行一个，纯数字，不能包含其它字符！"></input>
+			            </div>
+			          </div>
+			          <div class="form-actions">
+			            <button id="submit" class="btn btn-primary"> 获取资源</button>
+			            <!--<button class="btn">Cancel</button>-->
+			          </div>
+			        </fieldset>
+					<fieldset>
+	  <div id="formOneResults">
+	  </div></fieldset>
+			</form>
+		<!-- First Form Ends Here -->
+
+
+      <footer>
+        <p>&copy; kalvin.cn</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+  </body>
+</html>
